@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contribute - Salary Predictor</title>
+</head>
+<body>
+    <h1>Contribute to our Dataset</h1>
+    <form method="POST">
+        <label>Enter your Experience:</label>
+        <input type="number" step="0.25" name="experience" min="0" max="20">
+        <br>
+        <label>Enter your Salary:</label>
+        <input type="number" step="1000" name="salary" min="0">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

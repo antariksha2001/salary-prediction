@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Salary Predictor</title>
+</head>
+<body>
+    <h1>Home</h1>
+    <img src="{{ url_for('static', filename='static\my\salary.jpeg') }}" width="800">
+    
+    <form method="POST">
+        <label>Show Table:</label>
+        <input type="checkbox" name="show_table">
+        <br>
+        <label>Filter data using years:</label>
+        <input type="number" name="filter_value" min="0" max="20" value="0">
+        <br>
+        <input type="submit" value="Update">
+    </form>
+
+    {% if show_table %}
+        <h2>Data Table</h2>
+        <div>{{ data | safe }}</div>
+    {% endif %}
+
+    {% if graph_html %}
+        <h2>Graph</h2>
+        <div>{{ graph_html | safe }}</div>
+    {% endif %}
+</body>
+</html>
