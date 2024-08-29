@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 # Load the data and model
-data = pd.read_csv("static\my\Salary_Data.csv")
+data = pd.read_csv("static\\my\\Salary_Data.csv")
 x = np.array(data['YearsExperience']).reshape(-1,1)
 lr = LinearRegression()
 lr.fit(x, np.array(data['Salary']))
@@ -59,7 +59,7 @@ def contribute():
         if experience is not None and salary is not None:
             to_add = {"YearsExperience": [experience], "Salary": [salary]}
             to_add = pd.DataFrame(to_add)
-            to_add.to_csv("static\my\Salary_Data.csv", mode='a', header=False, index=False)
+            to_add.to_csv("static\\my\\Salary_Data.csv", mode='a', header=False, index=False)
             flash('Successfully submitted!', 'success')
             return redirect(url_for('contribute'))
     
